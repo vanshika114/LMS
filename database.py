@@ -44,3 +44,22 @@ def init_db():
 if __name__ == "__main__":
     init_db()
     print("Database created successfully!")
+
+
+import sqlite3
+
+conn = sqlite3.connect("library.db")
+cursor = conn.cursor()
+
+try:
+    cursor.execute("""
+        ALTER TABLE issued_books
+        ADD COLUMN due_date TEXT
+    """)
+    print("Due date column added successfully.")
+
+except sqlite3.OperationalError:
+    print("Due date column already exists.")
+
+conn.commit()
+conn.close()

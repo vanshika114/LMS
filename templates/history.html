@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}
+History
+{% endblock %}
+
+{% block content %}
+
+<h2>📜 Transaction History</h2>
+
+<h3>🔍 Search History</h3>
+
+<form method="GET">
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Search Book or Member"
+        value="{{ search }}">
+
+    <select name="status">
+
+        <option value="">All Status</option>
+
+        <option value="Issued"
+        {% if status=="Issued" %}selected{% endif %}>
+            Issued
+        </option>
+
+        <option value="Returned"
+        {% if status=="Returned" %}selected{% endif %}>
+            Returned
+        </option>
+
+        <option value="Overdue"
+        {% if status=="Overdue" %}selected{% endif %}>
+            Overdue
+        </option>
+
+    </select>
+
+    <button type="submit">
+        Search
+    </button>
+
+    <a href="/history">
+        Clear
+    </a>
+
+</form>
+
+<hr>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>Issue ID</th>
+        <th>Book</th>
+        <th>Member</th>
+        <th>Issue Date</th>
+        <th>Due Date</th>
+        <th>Return Date</th>
+        <th>Status</th>
+    </tr>
+
+    {% for record in history %}
+
+    <tr>
+
+        <td>{{ record[0] }}</td>
+
+        <td>{{ record[1] }}</td>
+
+        <td>{{ record[2] }}</td>
+
+        <td>{{ record[3] }}</td>
+
+        <td>{{ record[4] }}</td>
+
+        <td>
+
+            {% if record[5] %}
+                {{ record[5] }}
+            {% else %}
+                —
+            {% endif %}
+
+        </td>
+
+        <td>
+
+            {% if record[6] == "Returned" %}
+
+                ✅ Returned
+
+            {% elif record[6] == "Overdue" %}
+
+                🔴 Overdue
+
+            {% else %}
+
+                📚 Issued
+
+            {% endif %}
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

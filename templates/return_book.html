@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+Return Book
+{% endblock %}
+
+{% block content %}
+
+<h2>↩️ Return Book</h2>
+
+<form method="POST">
+
+    <label>Issued Books</label>
+
+    <br><br>
+
+    <select name="issue_id" required>
+
+        {% for issue in issued %}
+
+        <option value="{{ issue[0] }}">
+            {{ issue[1] }} - Borrowed by {{ issue[2] }}
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+    <br><br>
+
+    <button type="submit">
+        Return Book
+    </button>
+
+</form>
+
+{% endblock %}

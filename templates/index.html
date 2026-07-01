@@ -1,40 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management System</title>
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+{% block title %}
+Dashboard
+{% endblock %}
 
-    <div class="background"></div>
+{% block content %}
 
-    <nav class="navbar">
-        <div class="logo">📚 LMS</div>
+<h2>📊 Library Dashboard</h2>
 
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/books">Books</a>
-            <a href="/members">Members</a>
-            <a href="/issue-book">Issue</a>
-            <a href="/return-book">Return</a>
-        </div>
-    </nav>
+<table border="1" cellpadding="10">
 
-    <section class="hero">
-        <h1>Library Management System</h1>
+<tr>
+    <th>Statistic</th>
+    <th>Value</th>
+</tr>
 
-        <p>
-            Manage books, members, issue records and returns
-            through one elegant dashboard.
-        </p>
+<tr>
+    <td>📚 Total Books</td>
+    <td>{{ total_books }}</td>
+</tr>
 
-        <a href="/books" class="btn">
-            Explore Collection
-        </a>
-    </section>
+<tr>
+    <td>👥 Total Members</td>
+    <td>{{ total_members }}</td>
+</tr>
 
-</body>
-</html>
+<tr>
+    <td>📖 Books Currently Issued</td>
+    <td>{{ books_issued }}</td>
+</tr>
+
+<tr>
+    <td>🔴 Overdue Books</td>
+    <td>{{ overdue_books }}</td>
+</tr>
+
+<tr>
+    <td>⚠️ Low Stock Books</td>
+    <td>{{ low_stock }}</td>
+</tr>
+
+<tr>
+    <td>📦 Available Copies</td>
+    <td>{{ available_books }}</td>
+</tr>
+
+</table>
+
+<hr>
+
+<h2>📚 Recently Added Books</h2>
+
+<ul>
+
+{% for book in recent_books %}
+
+<li>{{ book[0] }}</li>
+
+{% endfor %}
+
+</ul>
+
+{% endblock %}

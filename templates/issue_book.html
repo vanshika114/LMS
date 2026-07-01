@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+Issue Book
+{% endblock %}
+
+{% block content %}
+
+<h2>📚 Issue Book</h2>
+
+<form method="POST">
+
+    <label>Select Book</label>
+
+    <br><br>
+
+    <select name="book_id" required>
+
+        {% for book in books %}
+
+        <option value="{{ book[0] }}">
+            {{ book[1] }}
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+    <br><br>
+
+    <label>Select Member</label>
+
+    <br><br>
+
+    <select name="member_id" required>
+
+        {% for member in members %}
+
+        <option value="{{ member[0] }}">
+            {{ member[1] }}
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+    <br><br>
+
+    <button type="submit">
+        Issue Book
+    </button>
+
+</form>
+
+{% endblock %}
