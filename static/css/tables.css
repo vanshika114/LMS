@@ -1,0 +1,39 @@
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#18181B;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+th{
+
+    background:#4F46E5;
+
+    color:white;
+
+    padding:18px;
+
+}
+
+td{
+
+    padding:18px;
+
+    border-bottom:1px solid #27272A;
+
+    text-align:center;
+
+}
+
+tr:hover{
+
+    background:#202024;
+
+}

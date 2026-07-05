@@ -1,18 +1,310 @@
-.flash{
-    padding:12px;
+/* =========================
+   Global
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:#09090B;
+
+    color:#FAFAFA;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+/* =========================
+   Background
+========================= */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    background:
+        radial-gradient(circle at top left,#4F46E520,transparent 35%),
+        radial-gradient(circle at bottom right,#06B6D420,transparent 30%),
+        #09090B;
+
+}
+
+/* =========================
+   Navbar
+========================= */
+
+.navbar{
+
+    width:100%;
+
+    height:75px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 70px;
+
+    background:rgba(24,24,27,.75);
+
+    backdrop-filter:blur(16px);
+
+    border-bottom:1px solid #27272A;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.logo span{
+
+    color:white;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#A1A1AA;
+
+    font-weight:500;
+
+    transition:.25s;
+
+}
+
+.nav-links a:hover{
+
+    color:white;
+
+}
+
+/* =========================
+   Container
+========================= */
+
+.container{
+
+    width:min(1200px,90%);
+
+    margin:auto;
+
+    padding:50px 0;
+
+}
+
+/* =========================
+   Headings
+========================= */
+
+h1{
+
+    font-size:48px;
+
     margin-bottom:15px;
-    border-radius:8px;
-    font-weight:bold;
+
+}
+
+h2{
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+}
+
+h3{
+
+    margin-bottom:15px;
+
+}
+
+/* =========================
+   Glass Card
+========================= */
+
+.card{
+
+    background:rgba(24,24,27,.80);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid #27272A;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:
+
+    0 10px 40px rgba(0,0,0,.30);
+
+}
+
+/* =========================
+   Buttons
+========================= */
+
+button{
+
+    background:#4F46E5;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:#6366F1;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 30px rgba(79,70,229,.35);
+
+}
+
+/* =========================
+   Links
+========================= */
+
+a{
+
+    color:#818CF8;
+
+    text-decoration:none;
+
+}
+
+a:hover{
+
+    color:white;
+
+}
+
+/* =========================
+   Flash Messages
+========================= */
+
+.flash{
+
+    padding:18px;
+
+    border-radius:14px;
+
+    margin-bottom:25px;
+
+    font-weight:500;
+
 }
 
 .flash.success{
-    background:#d4edda;
-    color:#155724;
-    border:1px solid #c3e6cb;
+
+    background:#14532D;
+
+    border:1px solid #16A34A;
+
 }
 
 .flash.error{
-    background:#f8d7da;
-    color:#721c24;
-    border:1px solid #f5c6cb;
+
+    background:#7F1D1D;
+
+    border:1px solid #DC2626;
+
+}
+
+/* =========================
+   HR
+========================= */
+
+hr{
+
+    margin:40px 0;
+
+    border:none;
+
+    border-top:1px solid #27272A;
+
+}
+
+/* =========================
+   Scrollbar
+========================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#3F3F46;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#52525B;
+
 }

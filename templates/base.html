@@ -5,64 +5,106 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}Library Management System{% endblock %}</title>
+    <title>{% block title %}LibraryMS{% endblock %}</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/forms.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/tables.css') }}">
 
 </head>
 
 <body>
 
-    <h1>📚 Library Management System</h1>
+    <!-- Background Layer -->
 
-    <hr>
+    <div class="background"></div>
 
-    <nav>
+    <!-- Navigation -->
 
-        <a href="/">Dashboard</a> |
+    <nav class="navbar">
 
-        <a href="/books">Books</a> |
+        <div class="logo">
 
-        <a href="/members">Members</a> |
+            📚 <span>LibraryMS</span>
 
-        <a href="/issue-book">Issue Book</a> |
+        </div>
 
-        <a href="/return-book">Return Book</a> |
+        <div class="nav-links">
 
-        <a href="/history">History</a>
+            <a href="/">Dashboard</a>
+
+            <a href="/books">Books</a>
+
+            <a href="/members">Members</a>
+
+            <a href="/issue-book">Issue</a>
+
+            <a href="/return-book">Return</a>
+
+            <a href="/history">History</a>
+
+        </div>
 
     </nav>
 
-    <hr>
+    <!-- Main Content -->
 
-    {% with messages = get_flashed_messages(with_categories=true) %}
+    <main class="container">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
         {% if messages %}
 
-            {% for category, message in messages %}
+        {% for category, message in messages %}
 
-                {% if category == "success" %}
+        <div class="flash {{ category }}">
 
-                    <div class="flash success">
-                        {{ message }}
-                    </div>
+            {{ message }}
 
-                {% else %}
+        </div>
 
-                    <div class="flash error">
-                        {{ message }}
-                    </div>
-
-                {% endif %}
-
-            {% endfor %}
+        {% endfor %}
 
         {% endif %}
-    {% endwith %}
 
-    {% block content %}
-    {% endblock %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <!-- JS -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
 
 </body>
 
