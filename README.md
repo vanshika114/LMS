@@ -117,7 +117,7 @@ Library-Management-System/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/library-management-system.git
+git clone https://github.com/vanshika114/library-management-system.git
 ```
 
 ### 2. Navigate into the project
@@ -242,13 +242,3 @@ Through this project, I strengthened my understanding of:
 
 ---
 
-# 👩‍💻 Author
-
-**Vanshika Sharma**
-
-- GitHub: https://github.com/your-username
-- LinkedIn: https://linkedin.com/in/your-linkedin
-
----
-
-## ⭐ If you found this project interesting, consider giving it a star!
